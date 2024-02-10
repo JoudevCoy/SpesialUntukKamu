@@ -1,0 +1,151 @@
+@font-face {
+  font-family: "OpenSans";
+  src: url("OpenSans-Bold.ttf");
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:root {
+  --pm-color: #f23d93;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #effaff;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--pm-color);
+  z-index: 10;
+}
+
+.loading-screen .text-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-screen .text-wrapper h1 {
+  font-size: 5.6rem;
+  color: white;
+  font-family: "OpenSans", Sans-Serif;
+  position: absolute;
+  opacity: 0;
+}
+
+section {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem 2rem;
+  opacity: 0;
+  .title {
+    color: #234;
+    font-size: 1.5rem;
+    font-family: "OpenSans", Sans-Serif;
+  }
+  .msg-box {
+    width: 80%;
+    margin-inline: auto;
+    height: auto;
+    padding: 1rem 1.3rem;
+    margin-bottom: 1.2rem;
+    background: white;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 2px 6px 1.5px #24344530;
+    .msg {
+      width: 100%;
+      height: 0px;
+      overflow: hidden;
+      span {
+        font-size: 2rem;
+        color: var(--pm-color);
+        font-family: "OpenSans", Sans-Serif;
+      }
+    }
+    .msg-btn {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(50%);
+      display: block;
+      background: white;
+      width: 50px;
+      aspect-ratio: 1;
+      box-shadow: 0 2px 6px 1.5px #24344530;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      span {
+        position: relative;
+        transform: translateY(2px) scale(1);
+        font-size: 2rem;
+        animation: beat .35s ease-in-out alternate-reverse infinite;
+        i {
+          width: 130px;
+          position: absolute;
+          font-size: .9rem;
+          bottom: 10px;
+          left: -140px;
+        }
+      }
+    }
+  }
+}
+@keyframes beat {
+  to {
+    transform: translateY(2px) scale(1.1);
+  }
+}
+
+section .heading {
+  text-align: center;
+  img {
+    width: 180px;
+    aspect-ratio: 1;
+    display: inline-block;
+  }
+  p {
+    color: #234;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+section .action {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  button {
+    background-color: transparent;
+    border: 3px solid currentColor;
+    outline: none;
+    padding: .5rem .75rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    color: #234;
+  }
+  button.primary {
+    color: var(--pm-color);
+  }
+}
